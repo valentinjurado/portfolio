@@ -519,3 +519,187 @@ a { text-decoration: none; color: inherit; }
         transition: none;
     }
 }
+
+/* ═══════════════════════════════════════════════
+   COLOR Y MOVIMIENTO (versión 4)
+   ═══════════════════════════════════════════════ */
+
+/* Barra de progreso de lectura */
+.barra-progreso {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #0E5831, #2ea46f, #14b8a6, #f59e0b);
+    z-index: 2000;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Hero: fondos pastel de color */
+.hero {
+    background:
+        radial-gradient(ellipse 40% 55% at 12% 15%, rgba(14, 88, 49, 0.10), transparent 60%),
+        radial-gradient(ellipse 35% 50% at 88% 25%, rgba(20, 184, 166, 0.12), transparent 60%),
+        radial-gradient(ellipse 30% 45% at 70% 90%, rgba(245, 158, 11, 0.09), transparent 60%),
+        radial-gradient(ellipse 28% 40% at 30% 85%, rgba(56, 189, 248, 0.08), transparent 60%),
+        var(--fondo);
+}
+
+/* Nombre con degradado */
+.hero-nombre {
+    background: linear-gradient(92deg, #0E5831 10%, #14b8a6 60%, #0E5831 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brillo-degradado 6s ease infinite;
+}
+@keyframes brillo-degradado {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+/* Badge con punto pulsante */
+.hero-badge {
+    position: relative;
+    padding-left: 28px;
+}
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulso 2s ease-in-out infinite;
+}
+@keyframes pulso {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
+    50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+}
+
+/* Foto del hero: flotación suave */
+.hero-foto {
+    animation: flotar-suave 5.5s ease-in-out infinite;
+}
+@keyframes flotar-suave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Botón principal con degradado animado */
+.btn-ver-proyectos {
+    background: linear-gradient(135deg, #0E5831, #2ea46f, #14b8a6);
+    background-size: 200% 200%;
+    animation: gradiente-fluido 6s ease infinite;
+}
+@keyframes gradiente-fluido {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Títulos de sección con subrayado degradado */
+.seccion-titulo {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+.seccion-titulo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 4px;
+    width: 68px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #0E5831, #14b8a6, #f59e0b);
+}
+.seccion-encabezado.centrado .seccion-titulo::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tags de tecnologías coloridos por categoría */
+.tecno-tag[data-cat="Lenguaje"]       { color: #0369a1; background: #e0f2fe; }
+.tecno-tag[data-cat="Frontend"]       { color: #0f766e; background: #ccfbf1; }
+.tecno-tag[data-cat="Backend"]        { color: #b45309; background: #fef3c7; }
+.tecno-tag[data-cat="Base de datos"]  { color: #6d28d9; background: #ede9fe; }
+.tecno-tag[data-cat="Herramientas"]   { color: #15803d; background: #dcfce7; }
+
+/* Cards de tecnología: icono con zoom al hover */
+.tarjeta-tecno img {
+    transition: transform 0.3s ease;
+}
+.tarjeta-tecno:hover img {
+    transform: scale(1.14);
+}
+.tarjeta-tecno:hover h3 {
+    color: var(--verde);
+}
+
+/* Cards de proyectos: barra de color superior */
+.tarjeta-proyecto {
+    position: relative;
+}
+.tarjeta-proyecto::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    z-index: 2;
+    background: var(--barra, linear-gradient(90deg, #0E5831, #14b8a6));
+}
+
+/* Nav links: subrayado animado */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 14px; right: 14px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 1px;
+    background: linear-gradient(90deg, #0E5831, #14b8a6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Reveal con escala sutil */
+.reveal {
+    transform: translateY(22px) scale(0.98);
+}
+.reveal.visible {
+    transform: translateY(0) scale(1);
+}
+
+/* Contacto: iconos con color propio */
+.contacto-email i { color: #0E5831; }
+.contacto-github i { color: #1f2937; }
+.contacto-ubicacion i { color: #14b8a6; }
+.tarjeta-contacto:hover i {
+    transform: scale(1.15);
+}
+.tarjeta-contacto i {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+/* Sección alterna con tinte verde */
+.seccion-alterna {
+    background: #f1f6f2;
+}
+
+/* Proyecto-tech: un toque de color */
+.proyecto-tech {
+    background: #f4f7f5;
+    color: #3d4f46;
+}

@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preview: 'assets/img/prev-agrovector.jpg',
             demo: 'https://valentinjurado.github.io/agrovector-web-design/',
             repo: 'https://github.com/annaknell/agrovector-web-design',
+            barra: 'linear-gradient(90deg, #16a34a, #2ea46f)',
         },
         {
             nombre: 'ComercioPOS',
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icono: 'bi-shop',
             demo: null,
             repo: 'https://github.com/valentinjurado/kiosco-app-releases',
+            barra: 'linear-gradient(90deg, #0E5831, #16a34a)',
         },
         {
             nombre: 'Gestión de Turnos',
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icono: 'bi-calendar-check',
             demo: null,
             repo: 'https://github.com/valentinjurado/GestionDeTurnos',
+            barra: 'linear-gradient(90deg, #f59e0b, #d97706)',
         },
         {
             nombre: 'Seminario Angular',
@@ -53,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preview: 'assets/img/prev-angular.jpg',
             demo: 'https://valentinjurado.github.io/Angular-seminario/',
             repo: 'https://github.com/valentinjurado/Angular-seminario',
+            barra: 'linear-gradient(90deg, #38bdf8, #0284c7)',
         },
         {
             nombre: 'Clima',
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preview: 'assets/img/prev-clima.jpg',
             demo: 'https://valentinjurado.github.io/Clima/',
             repo: 'https://github.com/valentinjurado/Clima',
+            barra: 'linear-gradient(90deg, #14b8a6, #2dd4bf)',
         },
     ];
 
@@ -90,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="${p.repo}" target="_blank" rel="noopener noreferrer" class="proyecto-link">Ver código <i class="bi bi-github"></i></a>`;
             return `
                 <div class="col-md-6 col-lg-4 reveal" data-retardo="${i % 3}">
-                    <div class="tarjeta-proyecto">
+                    <div class="tarjeta-proyecto" style="--barra: ${p.barra}">
                         ${preview}
                         <div class="proyecto-cuerpo">
                             <h3>${p.nombre}</h3>
@@ -129,6 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const alDesplazar = () => {
         if (navbar) navbar.classList.toggle('compacta', window.scrollY > 40);
+
+        // barra de progreso de lectura
+        const barraProgreso = document.getElementById('barraProgreso');
+        if (barraProgreso) {
+            const alto = document.documentElement.scrollHeight - window.innerHeight;
+            barraProgreso.style.width = (alto > 0 ? Math.min((window.scrollY / alto) * 100, 100) : 0) + '%';
+        }
 
         // resaltar la sección visible
         const posicion = window.scrollY + 120;
