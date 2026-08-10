@@ -64,42 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ];
 
-    // ══════════════ HERO: efecto de escritura ══════════════
-    const roles = [
-        'Desarrollador de software',
-        'Estudiante de TUDAI (UNICEN)',
-        'Amante del código y el deporte',
-    ];
-    const destinoRol = document.getElementById('tipoRol');
-    if (destinoRol) {
-        let indiceRol = 0;
-        let indiceLetra = 0;
-        let borrando = false;
-
-        const escribir = () => {
-            const rol = roles[indiceRol];
-            if (!borrando) {
-                destinoRol.textContent = rol.slice(0, ++indiceLetra);
-                if (indiceLetra === rol.length) {
-                    borrando = true;
-                    setTimeout(escribir, 1800);
-                    return;
-                }
-                setTimeout(escribir, 55);
-            } else {
-                destinoRol.textContent = rol.slice(0, --indiceLetra);
-                if (indiceLetra === 0) {
-                    borrando = false;
-                    indiceRol = (indiceRol + 1) % roles.length;
-                    setTimeout(escribir, 350);
-                    return;
-                }
-                setTimeout(escribir, 28);
-            }
-        };
-        setTimeout(escribir, 600);
-    }
-
     // ══════════════ GRID DE TECNOLOGÍAS ══════════════
     const grillaTecno = document.getElementById('grillaTecnologias');
     if (grillaTecno) {
