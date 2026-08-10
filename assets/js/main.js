@@ -24,36 +24,43 @@ document.addEventListener('DOMContentLoaded', () => {
             nombre: 'Agrovector',
             descripcion: 'Sitio web institucional para un servicio de aplicación agrícola con drones: catálogo de productos, materiales técnicos y presencia digital completa.',
             techs: ['HTML', 'CSS', 'JavaScript'],
-            link: 'https://github.com/annaknell/agrovector-web-design',
-            icono: 'bi-airplane-engines',
+            preview: 'assets/img/prev-agrovector.jpg',
+            demo: 'https://valentinjurado.github.io/agrovector-web-design/',
+            repo: 'https://github.com/annaknell/agrovector-web-design',
         },
         {
             nombre: 'ComercioPOS',
             descripcion: 'Aplicación de punto de venta (POS) con gestión de stock, tickets, reportes en PDF y CSV, modo oscuro y multidioma (español, inglés y portugués).',
             techs: ['JavaScript', 'Node.js', 'SQL'],
-            link: 'https://github.com/valentinjurado/kiosco-app-releases',
+            grad: 'grad-1',
             icono: 'bi-shop',
+            demo: null,
+            repo: 'https://github.com/valentinjurado/kiosco-app-releases',
         },
         {
             nombre: 'Gestión de Turnos',
             descripcion: 'Sistema de gestión de turnos en Java con interfaz gráfica. Proyecto universitario de la tecnicatura.',
             techs: ['Java'],
-            link: 'https://github.com/valentinjurado/GestionDeTurnos',
+            grad: 'grad-2',
             icono: 'bi-calendar-check',
+            demo: null,
+            repo: 'https://github.com/valentinjurado/GestionDeTurnos',
         },
         {
             nombre: 'Seminario Angular',
             descripcion: 'Aplicación web en Angular desarrollada como seminario universitario. Componentes, servicios y TypeScript.',
             techs: ['Angular', 'TypeScript'],
-            link: 'https://github.com/valentinjurado/Angular-seminario',
-            icono: 'bi-braces',
+            preview: 'assets/img/prev-angular.jpg',
+            demo: 'https://valentinjurado.github.io/Angular-seminario/',
+            repo: 'https://github.com/valentinjurado/Angular-seminario',
         },
         {
             nombre: 'Clima',
             descripcion: 'Aplicación del clima que consume una API pública para mostrar el estado del tiempo.',
             techs: ['JavaScript', 'API'],
-            link: 'https://github.com/valentinjurado/Clima',
-            icono: 'bi-cloud-sun',
+            preview: 'assets/img/prev-clima.jpg',
+            demo: 'https://valentinjurado.github.io/Clima/',
+            repo: 'https://github.com/valentinjurado/Clima',
         },
     ];
 
@@ -101,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="tarjeta-tecno">
                     <img src="https://skillicons.dev/icons?i=${t.icono}" alt="${t.nombre}" loading="lazy">
                     <h3>${t.nombre}</h3>
-                    <span class="tecno-tag">${t.tag}</span>
+                    <span class="tecno-tag" data-cat="${t.tag}">${t.tag}</span>
                 </div>
             </div>
         `).join('');
@@ -110,21 +117,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // ══════════════ GRID DE PROYECTOS ══════════════
     const grillaProyectos = document.getElementById('grillaProyectos');
     if (grillaProyectos) {
-        grillaProyectos.innerHTML = proyectos.map((p, i) => `
-            <div class="col-md-6 col-lg-4 reveal" data-retardo="${i % 3}">
-                <div class="tarjeta-proyecto">
-                    <div class="proyecto-icono"><i class="bi ${p.icono}"></i></div>
-                    <h3>${p.nombre}</h3>
-                    <p>${p.descripcion}</p>
-                    <div class="proyecto-techs">
-                        ${p.techs.map(t => `<span class="proyecto-tech">${t}</span>`).join('')}
+        grillaProyectos.innerHTML = proyectos.map((p, i) => {
+            const preview = p.preview
+                ? `<div class="proyecto-preview"><img src="${p.preview}" alt="${p.nombre}" loading="lazy"></div>`
+                : `<div class="proyecto-preview proyecto-preview-grad ${p.grad}"><i class="bi ${p.icono}"></i></div>`;
+            const links = `
+                ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="proyecto-link">Ver demo <i class="bi bi-box-arrow-up-right"></i></a>` : ''}
+                <a href="${p.repo}" target="_blank" rel="noopener noreferrer" class="proyecto-link">Ver código <i class="bi bi-github"></i></a>`;
+            return `
+                <div class="col-md-6 col-lg-4 reveal" data-retardo="${i % 3}">
+                    <div class="tarjeta-proyecto">
+                        ${preview}
+                        <div class="proyecto-cuerpo">
+                            <h3>${p.nombre}</h3>
+                            <p>${p.descripcion}</p>
+                            <div class="proyecto-techs">
+                                ${p.techs.map(t => `<span class="proyecto-tech">${t}</span>`).join('')}
+                            </div>
+                            <div class="proyecto-links">${links}</div>
+                        </div>
                     </div>
-                    <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="proyecto-link">
-                        Ver en GitHub <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        `).join('');
+                </div>`;
+        }).join('');
     }
 
     // ══════════════ APARICIÓN AL SCROLL (reveal) ══════════════
