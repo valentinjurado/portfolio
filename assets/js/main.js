@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             descripcion: 'Sitio web institucional para un servicio de aplicación agrícola con drones: catálogo de productos, materiales técnicos y presencia digital completa.',
             techs: ['HTML', 'CSS', 'JavaScript'],
             preview: 'assets/img/prev-agrovector.jpg',
-            demo: 'https://valentinjurado.github.io/agrovector-web-design/',
+            demo: 'https://annaknell.github.io/agrovector-web-design/',
             repo: 'https://github.com/annaknell/agrovector-web-design',
             barra: 'linear-gradient(90deg, #16a34a, #2ea46f)',
         },

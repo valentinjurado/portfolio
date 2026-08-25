@@ -1,6 +1,5 @@
 /* ============================================================
-   Portfolio — Valentín Jurado
-   Estilo: tarjeta/moderno, claro, mucho aire (look agencia)
+
    Paleta: fondo #fafaf9 · cards #ffffff · borde #e7e5e4 · verde #0E5831
    ============================================================ */
 :root {
@@ -524,7 +523,7 @@ a { text-decoration: none; color: inherit; }
    COLOR Y MOVIMIENTO (versión 4)
    ═══════════════════════════════════════════════ */
 
-/* Barra de progreso de lectura */
+
 .barra-progreso {
     position: fixed;
     top: 0; left: 0;
@@ -535,7 +534,7 @@ a { text-decoration: none; color: inherit; }
     border-radius: 0 3px 3px 0;
 }
 
-/* Hero: fondos pastel de color */
+
 .hero {
     background:
         radial-gradient(ellipse 40% 55% at 12% 15%, rgba(14, 88, 49, 0.10), transparent 60%),
@@ -545,7 +544,7 @@ a { text-decoration: none; color: inherit; }
         var(--fondo);
 }
 
-/* Nombre con degradado */
+
 .hero-nombre {
     background: linear-gradient(92deg, #0E5831 10%, #14b8a6 60%, #0E5831 100%);
     background-size: 200% auto;
@@ -559,7 +558,6 @@ a { text-decoration: none; color: inherit; }
     50% { background-position: 100% center; }
 }
 
-/* Badge con punto pulsante */
 .hero-badge {
     position: relative;
     padding-left: 28px;
@@ -580,7 +578,7 @@ a { text-decoration: none; color: inherit; }
     50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
 }
 
-/* Foto del hero: flotación suave */
+
 .hero-foto {
     animation: flotar-suave 5.5s ease-in-out infinite;
 }
@@ -589,7 +587,7 @@ a { text-decoration: none; color: inherit; }
     50% { transform: translateY(-10px); }
 }
 
-/* Botón principal con degradado animado */
+
 .btn-ver-proyectos {
     background: linear-gradient(135deg, #0E5831, #2ea46f, #14b8a6);
     background-size: 200% 200%;
@@ -600,7 +598,7 @@ a { text-decoration: none; color: inherit; }
     50% { background-position: 100% 50%; }
 }
 
-/* Títulos de sección con subrayado degradado */
+
 .seccion-titulo {
     position: relative;
     display: inline-block;
@@ -621,14 +619,14 @@ a { text-decoration: none; color: inherit; }
     transform: translateX(-50%);
 }
 
-/* Tags de tecnologías coloridos por categoría */
+
 .tecno-tag[data-cat="Lenguaje"]       { color: #0369a1; background: #e0f2fe; }
 .tecno-tag[data-cat="Frontend"]       { color: #0f766e; background: #ccfbf1; }
 .tecno-tag[data-cat="Backend"]        { color: #b45309; background: #fef3c7; }
 .tecno-tag[data-cat="Base de datos"]  { color: #6d28d9; background: #ede9fe; }
 .tecno-tag[data-cat="Herramientas"]   { color: #15803d; background: #dcfce7; }
 
-/* Cards de tecnología: icono con zoom al hover */
+
 .tarjeta-tecno img {
     transition: transform 0.3s ease;
 }
@@ -639,7 +637,7 @@ a { text-decoration: none; color: inherit; }
     color: var(--verde);
 }
 
-/* Cards de proyectos: barra de color superior */
+
 .tarjeta-proyecto {
     position: relative;
 }
@@ -652,7 +650,7 @@ a { text-decoration: none; color: inherit; }
     background: var(--barra, linear-gradient(90deg, #0E5831, #14b8a6));
 }
 
-/* Nav links: subrayado animado */
+
 .nav-link {
     position: relative;
 }
@@ -673,7 +671,7 @@ a { text-decoration: none; color: inherit; }
     transform: scaleX(1);
 }
 
-/* Reveal con escala sutil */
+
 .reveal {
     transform: translateY(22px) scale(0.98);
 }
@@ -681,7 +679,7 @@ a { text-decoration: none; color: inherit; }
     transform: translateY(0) scale(1);
 }
 
-/* Contacto: iconos con color propio */
+
 .contacto-email i { color: #0E5831; }
 .contacto-github i { color: #1f2937; }
 .contacto-ubicacion i { color: #14b8a6; }
@@ -693,12 +691,12 @@ a { text-decoration: none; color: inherit; }
     transition: transform 0.25s ease;
 }
 
-/* Sección alterna con tinte verde */
+
 .seccion-alterna {
     background: #f1f6f2;
 }
 
-/* Proyecto-tech: un toque de color */
+
 .proyecto-tech {
     background: #f4f7f5;
     color: #3d4f46;
