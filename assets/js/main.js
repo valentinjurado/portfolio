@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nombre: 'Gestión de Turnos',
             descripcion: 'Sistema de gestión de turnos en Java con interfaz gráfica. Proyecto universitario de la tecnicatura.',
             techs: ['Java'],
-            grad: 'grad-2',
+            preview: 'assets/img/Gestion-Turnos-Preview.png',
             icono: 'bi-calendar-check',
             demo: null,
             repo: 'https://github.com/valentinjurado/GestionDeTurnos',
